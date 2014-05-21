@@ -36,7 +36,7 @@ Correct:
     });
 
 - always use helpers-object to define a single or multiple template helpers
-- make sure you [guard variables](https://dweldon.silvrback.com/guards), since it is not 100% sure the data you reference really exists
+- make sure you [guard variables](https://dweldon.silvrback.com/guards), since it is not 100% sure the data you reference really exists, most of the time. Just do it always.
 
 ##Events
 
