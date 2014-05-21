@@ -16,6 +16,48 @@ Correct:
 - Helpers should be camelcased like normal JavaScript conventions.
 - Strings should always be warpped into a i18n wrapper/dummy function to make translations later on easy.
 
+#CSS -> LESS
+
+Always use less, never pure CSS.
+
+##Less - Structure
+
+    /client
+    /client/stylesheets/
+    
+    // Main less file, import all others
+    // Import e.g. bootstrap, fontawesome... here
+    // The only .less file!
+    /client/stylesheets/style.less
+    
+    // override twitter bootstrap (etc.) variables
+    /client/stylesheets/variables.import.less
+    
+    // basic global styles at stylesheet-root
+    /client/stylesheets/typography.import.less
+    /client/stylesheets/layout.import.less
+    /client/stylesheets/...
+    
+    // Special styles for only a site
+    /client/stylesheets/sites/
+    /client/stylesheets/sites/home.import.less
+    /client/stylesheets/sites/...
+
+    // Styling for components
+    /client/stylesheets/components/
+    /client/stylesheets/components/rotatingBox.import.less
+    /client/stylesheets/components/...
+
+- Read: (Meteorjs and twitter bootstrap)[http://www.manuel-schoebel.com/blog/meteorjs-and-twitter-bootstrap---the-right-way]
+
+Wrong:
+
+    my-less-file.lessimport
+
+Correct:
+
+    myLessFile.import.less
+
 
 #Template-Manager
 
