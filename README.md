@@ -16,3 +16,25 @@ Correct:
 - Helpers should be camelcased like normal JavaScript conventions.
 - Strings should always be warpped into a i18n wrapper/dummy function to make translations later on easy.
 
+
+#Template Helpers
+
+##Events
+
+Wrong:
+
+    Template.templateName.events({
+        'submit form': function(e){
+            // do s.th.
+        }
+    })
+    
+Correct:
+
+    Template.templateName.events({
+        'submit form': function(evt, tpl){
+            // do s.th.
+        }
+    })
+    
+- Always pass the event and template parameter in the form of "evt" and "tpl" even though you might not need those
