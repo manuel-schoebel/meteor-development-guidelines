@@ -1,7 +1,7 @@
 meteor-development-guidelines
 =============================
 
-#HTML
+#Template/Html
 
 Wrong:
 
@@ -17,7 +17,26 @@ Correct:
 - Strings should always be warpped into a i18n wrapper/dummy function to make translations later on easy.
 
 
-#Template Helpers
+#Template-Manager
+
+##Helpers
+
+Wrong:
+
+    Template.templateName.someHelper = function(){
+        var post = Posts.findOne({...});
+        return post.name;
+    }
+    
+Correct:
+
+    Template.templateName.helpers({
+        var post = Posts.findOne({...});
+        return post && post.name;
+    });
+
+- always use helpers-object to define a single or multiple template helpers
+- make sure you [guard variables](https://dweldon.silvrback.com/guards), since it is not 100% sure the data you reference really exists
 
 ##Events
 
