@@ -33,7 +33,7 @@ Correct:
 
 Always use less, never pure CSS.
 
-##Less - Structure
+##Less-Structure
 
     /client
     /client/stylesheets/
