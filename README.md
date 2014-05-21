@@ -86,8 +86,11 @@ Wrong:
 Correct:
 
     Template.templateName.helpers({
-        var post = Posts.findOne({...});
-        return post && post.name;
+        someHelper: function(){
+            var post = Posts.findOne({...});
+            return post && post.name;
+        },
+        ...
     });
 
 - always use helpers-object to define a single or multiple template helpers
