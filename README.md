@@ -1,7 +1,20 @@
 meteor-development-guidelines
 =============================
 
-#Template/Html
+I love working with other Meteor developers for my projects. In order to always get the best result and a code base that is always easy to follow, please read this guidelines and apply those to the code.
+
+Thanks!
+
+**Table of Contents**
+- [Template/Html](#templates-and-html)
+- [CSS and LESS](#css-and-less)
+    - [LESS - Structure](#less-structure)
+- [Template-Manager](#template-manager)
+    - [Helpers](#helpers)
+    - [Events](#events)
+
+
+#Templates and Html
 
 Wrong:
 
@@ -16,7 +29,7 @@ Correct:
 - Helpers should be camelcased like normal JavaScript conventions.
 - Strings should always be warpped into a i18n wrapper/dummy function to make translations later on easy.
 
-#CSS -> LESS
+#CSS and LESS
 
 Always use less, never pure CSS.
 
