@@ -48,7 +48,7 @@ Always use less, never pure CSS.
     /client/stylesheets/components/rotatingBox.import.less
     /client/stylesheets/components/...
 
-- Read: (Meteorjs and twitter bootstrap)[http://www.manuel-schoebel.com/blog/meteorjs-and-twitter-bootstrap---the-right-way]
+- Read: [Meteorjs and twitter bootstrap](http://www.manuel-schoebel.com/blog/meteorjs-and-twitter-bootstrap---the-right-way)
 
 Wrong:
 
