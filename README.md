@@ -137,7 +137,15 @@ Correct:
 - Always pass the event and template parameter in the form of "evt" and "tpl" even though you might not need those
 
 #Processing User Input
-##The Form
+
+1. Create a form
+2. Get form data
+3. Pass to a method
+4. Validate
+5. Pass errs
+6. Show errs
+
+1. Create a form
 We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/form.html)
 
     <template name="someForm">
@@ -161,25 +169,32 @@ We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/
                 type: 'submit'
             ]
     })
-    
+
+2. Get form data
+3. Pass to a method
+(6. Show errs)
+
     Template.someForm.events {
         'submit form': (evt, tpl) ->
-            // comes from [common helpers](https://github.com/DerMambo/common-helpers)
+            # comes from [common helpers](https://github.com/DerMambo/common-helpers)
             Etc.prevent evt
             
-            // remove Form errors if there were some set before
+            # remove Form errors if there were some set before
             Form.removeFormError()
             
-            // comes from [common helpers](https://github.com/DerMambo/common-helpers)
+            # comes from [common helpers](https://github.com/DerMambo/common-helpers)
             data = $(evt.currentTarget).serializeObject()
             
             Meteor.call 'updateUser', @_id, data, (err) ->
-                // function available that sets the errs to the form
+                # function available that sets the errs to the form
                 return handleFormError err if err
                 Notify.setSuccess 'Saved'
     }
-    
-    // In User Collection
+
+4. Validate
+5. Pass errs
+
+    # In User Collection
     Meteor.methods {
         updateUser: (_id, data) ->
         
@@ -189,15 +204,15 @@ We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/
             favouriteColor: String
         }
         
-        // User model validates all fields
+        # User model validates all fields
         errors = User.validate data
-        // Stringified errors can be processed by handleFormError function above
+        # Stringified errors can be processed by handleFormError function above
         throw new Meteor.Error 400, JSON.stringify errors unless _.isEmpty errors
         
-        // Using [minimongoid](https://github.com/Exygy/minimongoid)
+        # Using [minimongoid](https://github.com/Exygy/minimongoid)
         user = User.first {_id: _id} 
-        // __ is a i18n dummy package that simply returns the string
-        // but makes it easier adding i18n capabilities later on
+        # __ is a i18n dummy package that simply returns the string
+        # but makes it easier adding i18n capabilities later on
         throw new Meteor.Error 404, __ 'Not found' unless user
         
         // add some data
