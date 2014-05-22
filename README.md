@@ -13,6 +13,7 @@ Thanks!
 - [Template-Manager](#template-manager)
     - [Helpers](#helpers)
     - [Events](#events)
+- [Processing User Input](#processing-user-input)
 
 #Code Structure
     /client
