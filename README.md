@@ -6,6 +6,7 @@ I love working with other Meteor developers for my projects. In order to always 
 Thanks!
 
 **Table of Contents**
+- [Code Structure](#code-structure)
 - [Template/Html](#templates-and-html)
 - [CSS and LESS](#css-and-less)
     - [LESS - Structure](#less-structure)
@@ -13,6 +14,29 @@ Thanks!
     - [Helpers](#helpers)
     - [Events](#events)
 
+#Code Structure
+    /client
+    /client/main.coffee
+    /client/lib
+    /client/router/config.coffee
+    /client/router/onAfterAction.coffee
+    /client/router/onBeforeAction.coffee
+    /client/stylesheets/style.less
+    /client/views
+    /client/views/aSpecialSite/someFunctionality.html
+    /client/views/aSpecialSite/someFunctionality.coffee
+    /client/views/aSpecialSite/someFunctionality.import.less
+    /client/views/components/someComponent/someComponent.html
+    /client/views/components/someComponent/someComponent.coffee
+    /client/views/components/someComponent/someComponent.import.less
+    /collections
+    /lib/utils.coffee
+    /packages
+    /public
+    /router/routes.coffee
+    /server/publications/collectionName.coffee
+    /server/startup
+    /startup
 
 #Templates and Html
 
