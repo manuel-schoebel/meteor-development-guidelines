@@ -195,7 +195,7 @@ We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/
 4. Validate
 5. Pass errs
 
-    # In User Collection
+    // In User Collection
     Meteor.methods {
         updateUser: (_id, data) ->
         
@@ -205,15 +205,15 @@ We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/
             favouriteColor: String
         }
         
-        # User model validates all fields
+        // User model validates all fields
         errors = User.validate data
-        # Stringified errors can be processed by handleFormError function above
+        // Stringified errors can be processed by handleFormError function above
         throw new Meteor.Error 400, JSON.stringify errors unless _.isEmpty errors
         
-        # Using [minimongoid](https://github.com/Exygy/minimongoid)
+        // Using [minimongoid](https://github.com/Exygy/minimongoid)
         user = User.first {_id: _id} 
-        # __ is a i18n dummy package that simply returns the string
-        # but makes it easier adding i18n capabilities later on
+        // __ is a i18n dummy package that simply returns the string
+        // but makes it easier adding i18n capabilities later on
         throw new Meteor.Error 404, __ 'Not found' unless user
         
         // add some data
