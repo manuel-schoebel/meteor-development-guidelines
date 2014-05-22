@@ -146,6 +146,7 @@ Correct:
 6. Show errs
 
 1. Create a form
+
 We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/form.html)
 
     <template name="someForm">
@@ -176,17 +177,17 @@ We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/
 
     Template.someForm.events {
         'submit form': (evt, tpl) ->
-            # comes from [common helpers](https://github.com/DerMambo/common-helpers)
+            // comes from [common helpers](https://github.com/DerMambo/common-helpers)
             Etc.prevent evt
             
-            # remove Form errors if there were some set before
+            // remove Form errors if there were some set before
             Form.removeFormError()
             
-            # comes from [common helpers](https://github.com/DerMambo/common-helpers)
+            // comes from [common helpers](https://github.com/DerMambo/common-helpers)
             data = $(evt.currentTarget).serializeObject()
             
             Meteor.call 'updateUser', @_id, data, (err) ->
-                # function available that sets the errs to the form
+                // function available that sets the errs to the form
                 return handleFormError err if err
                 Notify.setSuccess 'Saved'
     }
