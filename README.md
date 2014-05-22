@@ -145,7 +145,6 @@ Correct:
 5. Pass errs
 6. Show errs
 
-1. Create a form
 
 We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/form.html)
 
@@ -171,10 +170,6 @@ We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/
             ]
     })
 
-2. Get form data
-3. Pass to a method
-(6. Show errs)
-
     Template.someForm.events {
         'submit form': (evt, tpl) ->
             // comes from [common helpers](https://github.com/DerMambo/common-helpers)
@@ -192,8 +187,6 @@ We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/
                 Notify.setSuccess 'Saved'
     }
 
-4. Validate
-5. Pass errs
 
     // In User Collection
     Meteor.methods {
