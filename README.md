@@ -135,3 +135,75 @@ Correct:
     }
     
 - Always pass the event and template parameter in the form of "evt" and "tpl" even though you might not need those
+
+#Processing User Input
+##The Form
+We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/form.html)
+
+    <template name="someForm">
+        {{>renderForm formOptions}}
+    </template>
+    
+    Template.someForm.helpers({
+        formOptions: ->
+            formFields: [
+                inputName: 'username'
+                label: 'Your Username'
+                type: 'text'
+            ,
+                inputName: 'favouriteColor'
+                label: 'Your favourite color'
+                type: 'text'
+            ]
+            actions: [
+                label: 'Submit'
+                btnClass: 'default'
+                type: 'submit'
+            ]
+    })
+    
+    Template.someForm.events {
+        'submit form': (evt, tpl) ->
+            // comes from [common helpers](https://github.com/DerMambo/common-helpers)
+            Etc.prevent evt
+            
+            // remove Form errors if there were some set before
+            Form.removeFormError()
+            
+            // comes from [common helpers](https://github.com/DerMambo/common-helpers)
+            data = $(evt.currentTarget).serializeObject()
+            
+            Meteor.call 'updateUser', @_id, data, (err) ->
+                // function available that sets the errs to the form
+                return handleFormError err if err
+                Notify.setSuccess 'Saved'
+    }
+    
+    // In User Collection
+    Meteor.methods {
+        updateUser: (_id, data) ->
+        
+        check _id, String
+        check data, {
+            username: String
+            favouriteColor: String
+        }
+        
+        // User model validates all fields
+        errors = User.validate data
+        // Stringified errors can be processed by handleFormError function above
+        throw new Meteor.Error 400, JSON.stringify errors unless _.isEmpty errors
+        
+        // Using [minimongoid](https://github.com/Exygy/minimongoid)
+        user = User.first {_id: _id} 
+        // __ is a i18n dummy package that simply returns the string
+        // but makes it easier adding i18n capabilities later on
+        throw new Meteor.Error 404, __ 'Not found' unless user
+        
+        // add some data
+        // validate some more logic (e.g. isAllowed?)
+    
+        // if everything is fine, update doc using minimongoid
+        user.save data
+    }
+    
