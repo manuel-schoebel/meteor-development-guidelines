@@ -22,13 +22,13 @@ Thanks!
     /client/router/onAfterAction.coffee
     /client/router/onBeforeAction.coffee
     /client/stylesheets/style.less
+    /client/stylesheets/components/someComponent.import.less
+    /client/stylesheets/sites/aSpecialSite.import.less
     /client/views
     /client/views/aSpecialSite/someFunctionality.html
     /client/views/aSpecialSite/someFunctionality.coffee
-    /client/views/aSpecialSite/someFunctionality.import.less
     /client/views/components/someComponent/someComponent.html
     /client/views/components/someComponent/someComponent.coffee
-    /client/views/components/someComponent/someComponent.import.less
     /collections
     /lib/utils.coffee
     /packages
@@ -102,20 +102,18 @@ Correct:
 
 Wrong:
 
-    Template.templateName.someHelper = function(){
-        var post = Posts.findOne({...});
-        return post.name;
-    }
+    Template.templateName.someHelper = ->
+        post = Posts.findOne({...})
+        post.name
     
 Correct:
 
-    Template.templateName.helpers({
-        someHelper: function(){
-            var post = Posts.findOne({...});
-            return post && post.name;
-        },
+    Template.templateName.helpers {
+        someHelper: ->
+            post = Posts.findOne({...})
+            return post?.name
         ...
-    });
+    }
 
 - always use helpers-object to define a single or multiple template helpers
 - make sure you [guard variables](https://dweldon.silvrback.com/guards), since it is not 100% sure the data you reference really exists, most of the time. Just do it always.
@@ -124,18 +122,16 @@ Correct:
 
 Wrong:
 
-    Template.templateName.events({
-        'submit form': function(e){
+    Template.templateName.events {
+        'submit form': (e) ->
             // do s.th.
-        }
-    })
+    }
     
 Correct:
 
-    Template.templateName.events({
-        'submit form': function(evt, tpl){
+    Template.templateName.events {
+        'submit form': (evt, tpl) ->
             // do s.th.
-        }
-    })
+    }
     
 - Always pass the event and template parameter in the form of "evt" and "tpl" even though you might not need those
