@@ -14,8 +14,10 @@ Thanks!
     - [Helpers](#helpers)
     - [Events](#events)
 - [Processing User Input](#processing-user-input)
+- [Common Best Practices](#common-best-practices)
+    - [Login Restricted Routes](#login-restricted-routes)
 
-#Code Structure
+##Code Structure
     /client
     /client/main.coffee
     /client/lib
@@ -39,7 +41,7 @@ Thanks!
     /server/startup
     /startup
 
-#Templates and Html
+##Templates and Html
 
 Wrong:
 
@@ -54,11 +56,11 @@ Correct:
 - Helpers should be camelcased like normal JavaScript conventions.
 - Strings should always be warpped into a i18n wrapper/dummy function to make translations later on easy.
 
-#CSS and LESS
+##CSS and LESS
 
 Always use less, never pure CSS.
 
-##Less-Structure
+###Less-Structure
 
     /client
     /client/stylesheets/
@@ -97,9 +99,9 @@ Correct:
     myLessFile.import.less
 
 
-#Template-Manager
+##Template-Manager
 
-##Helpers
+###Helpers
 
 Wrong:
 
@@ -119,7 +121,7 @@ Correct:
 - always use helpers-object to define a single or multiple template helpers
 - make sure you [guard variables](https://dweldon.silvrback.com/guards), since it is not 100% sure the data you reference really exists, most of the time. Just do it always.
 
-##Events
+###Events
 
 Wrong:
 
@@ -137,7 +139,7 @@ Correct:
     
 - Always pass the event and template parameter in the form of "evt" and "tpl" even though you might not need those
 
-#Processing User Input
+##Processing User Input
 
 1. Create a form
 2. Get form data
@@ -217,3 +219,8 @@ We use this [forms package](https://github.com/DerMambo/mambo-forms/blob/master/
         user.save data
     }
     
+##Common Best Practices
+###Login Restricted Routes
+[Article](http://www.manuel-schoebel.com/blog/login-required-for-an-url-done-right)
+###SEO
+[Article](http://www.manuel-schoebel.com/blog/meteor-and-seo)
