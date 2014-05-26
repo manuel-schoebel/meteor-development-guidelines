@@ -1,10 +1,6 @@
 meteor-development-guidelines
 =============================
 
-I love working with other Meteor developers for my projects. In order to always get the best result and a code base that is always easy to follow, please read this guidelines and apply those to the code.
-
-Thanks!
-
 **Table of Contents**
 - [Code Structure](#code-structure)
 - [Template/Html](#templates-and-html)
