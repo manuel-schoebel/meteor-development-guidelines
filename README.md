@@ -16,6 +16,7 @@ Thanks!
 - [Processing User Input](#processing-user-input)
 - [Common Best Practices](#common-best-practices)
     - [Login Restricted Routes](#login-restricted-routes)
+    - [SEO](#seo)
 
 ##Code Structure
     /client
