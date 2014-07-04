@@ -38,6 +38,23 @@ meteor-development-guidelines
     /server/startup
     /startup
 
+##Naming conventions
+MongoDB Fields: Underscore and short
+
+Wrong:
+    
+    {
+        nameOfTheUser: 'hans',
+        theCurrentSignupState: 1
+    }
+
+Correct:
+
+    {
+        name: 'hans',
+        signup_state: 1
+    }
+
 ##Templates and Html
 
 Wrong:
