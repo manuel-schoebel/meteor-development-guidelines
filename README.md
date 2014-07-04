@@ -3,6 +3,7 @@ meteor-development-guidelines
 
 **Table of Contents**
 - [Code Structure](#code-structure)
+- [Naming Conventions](#naming-conventions)
 - [Template/Html](#templates-and-html)
 - [CSS and LESS](#css-and-less)
     - [LESS - Structure](#less-structure)
